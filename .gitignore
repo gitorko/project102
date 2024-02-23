@@ -1,6 +1,6 @@
 HELP.md
-.model.file
-.normalize.file
+model.file
+normalize.file
 .gradle
 build/
 !gradle/wrapper/gradle-wrapper.jar
