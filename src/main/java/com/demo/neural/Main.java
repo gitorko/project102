@@ -56,7 +56,7 @@ public class Main {
     }
 
     @Bean
-    public CommandLineRunner sendData() {
+    public CommandLineRunner start() {
         return args -> {
             generateModel();
             log.info("Flower type is {}", predictForInput(new float[]{5.1f, 3.5f, 1.4f, 0.2f}));
