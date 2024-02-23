@@ -62,7 +62,6 @@ public class Main {
             log.info("Flower type is {}", predictForInput(new float[]{5.1f, 3.5f, 1.4f, 0.2f}));
             log.info("Flower type is {}", predictForInput(new float[]{6.5f, 3.0f, 5.5f, 1.8f}));
         };
-
     }
 
     private DataSet loadDataSet() throws IOException, InterruptedException {
@@ -157,12 +156,12 @@ public class Main {
 
         normalizer.transform(ndArray);
         INDArray result = model.output(ndArray, false);
-        getIndexLabel(result);
+        getBestPredicationIndex(result);
 
-        return flowerType.get(getIndexLabel(result));
+        return flowerType.get(getBestPredicationIndex(result));
     }
 
-    private int getIndexLabel(INDArray predictions) {
+    private int getBestPredicationIndex(INDArray predictions) {
         int maxIndex = 0;
         for (int i = 0; i < 3; i++) {
             if (predictions.getFloat(i) > predictions.getFloat(maxIndex)) {
